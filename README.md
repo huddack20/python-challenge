@@ -8,3 +8,5 @@ The resources directory contains data file and the analysis directory has a pyth
 
 Each python script can read a data file from each Resources directory.
 
+So, To run the scripts correctly, each "Resources" directory with its csv file must be located properly.
+
