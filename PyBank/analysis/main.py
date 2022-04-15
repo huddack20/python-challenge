@@ -16,6 +16,7 @@ def main():
     with open(budget_data_csv) as csvfile:
 
         reader = csv.reader(csvfile)
+        next(reader) # skip the the first line, the header in csv
 
         total_amount = 0.0
         num_months = 0
@@ -32,36 +33,36 @@ def main():
         month_list = []
 
         for i, row in enumerate(reader):
-            # colume title
-            if i != 0:
-                # the first row of the data, the initial Profit or Losses
-                if i == 1:
-                
-                    initial = row[1]
-                    prev_pl = initial
-                    total_amount = total_amount + float(row[1])
-                    num_months += 1
+            
+            # the first row of the data, the initial profit or losses
+            if i == 0:
+                initial = row[1]
+                prev_pl = initial
+                total_amount = total_amount + float(row[1])
+                num_months += 1
 
-                else:
+            else:
 
-                    total_amount = total_amount + float(row[1])
-                    num_months += 1
+                total_amount = total_amount + float(row[1])
+                num_months += 1
 
-                    current_pl = row[1]
-                    pl_change = float(current_pl) - float(prev_pl)
+                current_pl = row[1]
+                pl_change = float(current_pl) - float(prev_pl)
 
                     # Assign current profit/losses to previous profit/losses
-                    prev_pl = current_pl
+                prev_pl = current_pl
 
                     # Append profit/losses/current month to lists
-                    pl_change_list.append(pl_change)
-                    month_list.append(row[0])
+                pl_change_list.append(pl_change)
+                month_list.append(row[0])
 
         Avg_change = sum(pl_change_list)/len(pl_change_list)
 
         Greatest = max(pl_change_list)
         Lowest = min(pl_change_list)
 
+        year = num_months/12.0
+        
         G_month = month_list[pl_change_list.index(max(pl_change_list))]
         L_month = month_list[pl_change_list.index(min(pl_change_list))]
 
@@ -69,6 +70,7 @@ def main():
         print("Financial Analysis")
         print("------------------------------")
         print("Total Months: %d" % num_months)
+        print("Total years: %.2f" % year)
         print("Total: $%.2f" % total_amount)
         print("Average Change: $%.2f" % Avg_change)
         print("Greatest Increase in Profits: %s ($%.2f)" % (G_month, Greatest))

@@ -10,25 +10,25 @@ def main():
     with open(election_data_csv, 'r') as csvfile:
 
         reader = csv.reader(csvfile)
+        next(reader)
 
         num_row = 0
         num_charles = 0
         num_diana = 0
         num_raymon = 0
 
-        for i, row in enumerate(reader):
+        for row in reader:
     
-            if i != 0:
-                num_row += 1
+            num_row += 1
             
-                if row[2].startswith("Charles"):
-                    num_charles += 1
+            if row[2].startswith("Charles"):
+                num_charles += 1
 
-                elif row[2].startswith("Diana"):
-                    num_diana += 1
+            elif row[2].startswith("Diana"):
+                num_diana += 1
 
-                else:
-                    num_raymon += 1
+            else:
+                num_raymon += 1
 
         P_charles = (num_charles/num_row)*100.0
         P_diana = (num_diana/num_row)*100.0
