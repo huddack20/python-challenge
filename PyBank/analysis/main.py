@@ -7,8 +7,6 @@ It shows how each month revenue is changed from the previous month.
 import csv
 import os
 
-#path = 'C:\\Users\\hyeji\\Desktop\\Penn_BootCamp\\Homework\\03-Python\\Instructions\\PyBank\\'
-
 budget_data_csv = os.path.join('..', 'Resources', 'budget_data.csv')
 
 def main():
