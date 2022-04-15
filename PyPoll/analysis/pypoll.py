@@ -7,11 +7,13 @@ election_data_csv = os.path.join('..', 'Resources', 'election_data.csv')
 
 def main():
 
+    # read mode of csv file 
     with open(election_data_csv, 'r') as csvfile:
 
         reader = csv.reader(csvfile)
-        next(reader)
+        next(reader) # skip the first line, the header in csv
 
+        # initial variable definition for each candidate
         num_row = 0
         num_charles = 0
         num_diana = 0
@@ -30,6 +32,7 @@ def main():
             else:
                 num_raymon += 1
 
+        # Percentage of votes each candidate won 
         P_charles = (num_charles/num_row)*100.0
         P_diana = (num_diana/num_row)*100.0
         P_raymon = (num_raymon/num_row)*100.0
@@ -54,6 +57,7 @@ def main():
         print("------------------------------")
         print("\'\'\'")
 
+    # file write mode
     with open('result_pypoll.txt', 'w') as o_file:
 
         o_file.write("\n\'\'\'\n")
