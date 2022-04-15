@@ -1,8 +1,6 @@
 import csv
 import os
 
-#csvfile = open('C:\\Users\\hyeji\\Desktop\\Penn_BootCamp\\Homework\\03-Python\\Instructions\\PyPoll\\Resources\\election_data.csv', 'r')
-
 election_data_csv = os.path.join('..', 'Resources', 'election_data.csv')
 
 def main():
