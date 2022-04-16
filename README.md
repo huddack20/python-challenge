@@ -13,3 +13,5 @@ Each python script can read a data file from each "Resources" directory.
 
 So, To run the scripts correctly, each "Resources" directory with its csv file must be located properly.
 
+I knew how to set a file path from linux-wise root directory, but I used '..' which is parent directory to direct Resouces directory. 
+
